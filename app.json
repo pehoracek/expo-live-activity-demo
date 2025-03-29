@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "live-activity-demo",
-    "slug": "live-activity-demo",
+    "name": "expo-live-activity-demo",
+    "slug": "expo-live-activity-demo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.petrhoracek.expo-live-activity-demo",
+      "infoPlist": {
+        "NSSupportsLiveActivities": true
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -32,7 +36,23 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "deploymentTarget": "15.1"
+          }
+        }
+      ],
+      [
+        "@bacons/apple-targets",
+        {
+          "appleTeamId": "TEAM_ID"
+        }
+      ],
+      "./plugins/withLiveActivityModule"
     ],
     "experiments": {
       "typedRoutes": true
